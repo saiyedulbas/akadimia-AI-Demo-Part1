@@ -1,0 +1,29 @@
+<div class="container-faqs mt80">
+    <h1 class="faq-title">Frequently Asked Questions</h1>
+    
+        <mat-form-field class="search-faqs" appearance="fill">
+            <!-- <mat-label>Search </mat-label> -->
+            
+            <input matInput aria-label="Character" [formControl]="filterCtrl" placeholder="Search Questions">
+            <mat-icon matPrefix>search</mat-icon>
+            <!-- <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectCharacter($event.option.value)">
+      
+            </mat-autocomplete> -->
+        </mat-form-field>
+
+    <div class="faq-accordion">
+        <mat-accordion displayMode="flat" multi="true">
+            <mat-expansion-panel *ngFor="let question of (filteredQuestions | async)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ question.q }}
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                  This is a summary of the content
+                </mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <p class="description" [innerHtml]="question.a"></p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

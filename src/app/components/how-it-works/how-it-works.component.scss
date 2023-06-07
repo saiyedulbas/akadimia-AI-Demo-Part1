@@ -1,0 +1,74 @@
+@import "../../styles/helpers.scss";
+@import "../../styles/colors.scss";
+
+
+    .how-it-works-container {
+        background-color: var(--section-bg);
+        .how-it-works-center {
+            width: 80% ;
+            // padding: 90px clamp(20px,200px,10%);
+            min-height: 698px;
+            margin: auto;
+            margin-top: 80px;
+            text-align: center;
+            background: url("../../../assets/how-it-works.png");
+            background-size: cover;
+            background-position: center;
+            /* Center the image */
+    
+            .title {
+                font-family: 'Lora';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 45px;
+                line-height: 50px;
+                letter-spacing: -5e-05em;
+                color: var(--title);
+            }
+    
+            .video {
+                border-radius: 16px;
+            }
+    
+            .info-card {
+                display: flex;
+                //justify-content: space-between;
+                // .details {flex:2; text-align: left; max-width: 595px;}
+                .demo {flex: 1;}
+                h2 {font-weight: 500;
+                    font-size: 24px;
+                    line-height: 28px;
+                    /* identical to box height, or 117% */
+                    
+                    
+                    /* Palette-olive/Olive-500 */
+                    
+                    color: var(--title);}
+                p {font-weight: 400;
+                    font-size: 20px;
+                    line-height: 30px;
+                    /* or 150% */
+                    
+                    
+                    /* Palette-olive/Olive-300 */
+                    
+                    color: var(--paragraph)}
+            }
+    
+            .info-card {
+                flex-direction: column;
+                gap: 50px;
+                align-items: center;
+                text-align: left;
+                .details {max-width: 100%;}
+            }
+            iframe {width: 90%;}
+            @media only screen and (min-width: 768px) {
+                iframe {width: 560px}
+                .info-card {
+                  flex-direction: row-reverse;
+                  .details {flex:2; text-align: left; max-width: 595px;}
+                }
+            }
+        }
+    }

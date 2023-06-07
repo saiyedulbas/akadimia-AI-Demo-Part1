@@ -1,0 +1,163 @@
+@import "../../styles/helpers.scss";
+@import "../../styles/colors.scss";
+
+// Define your color variables
+:root {
+    --dropdown-bg-light: white;
+    --dropdown-bg-dark: black;
+    --nav-a-light: black;
+    --nav-a-dark: white;
+    // Assuming nav background color is same as dropdown background
+    --nav-bg: var(--dropdown-bg-light);
+    // other color variables...
+}
+
+body.light-mode {
+    --dropdown-bg: var(--dropdown-bg-light);
+    --nav-a: var(--nav-a-light); 
+    --nav-bg: var(--dropdown-bg-light); 
+    // other light mode variables...
+}
+
+body.dark-mode {
+    --dropdown-bg: var(--dropdown-bg-dark);
+    --nav-a: var(--nav-a-dark); 
+    --nav-bg: var(--dropdown-bg-dark); 
+    // other dark mode variables...
+}
+
+
+.app-nav-container {
+    .app-nav {
+        z-index: 99;
+        width: 100%;
+        padding: 18px 64px;
+        background: var(--nav-bg);
+        &.not-fixed {
+            position: static;
+            top: -50px;
+            transition: 0.2s ease-in;
+        }
+    }
+
+    .nav-logo {
+        max-height: 50px;
+        width: auto;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        width: 100%;
+        li {
+            list-style-type: none;
+            a {
+                font-weight: 500;
+                font-size: 18px;
+                text-decoration: none;
+                color: var(--nav-a); // Use the new variable here
+            }
+        }
+    }
+
+    .toggle-theme-btn {
+        background: var(--theme-btn-bg);
+        border: none;
+        border-radius: 136px;
+        padding: 9px 14px;
+        height: 40px;
+        position: relative;
+
+        img {
+            height: 22px;
+            width: 22px;
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            border-left: 1px solid var(--theme-btn-border);
+            right: -10px;
+            height: 80%;
+        }
+    }
+
+    .custom-button {
+        background: transparent;
+        border: none;
+        img {
+            height: 70px;
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+
+    .desktop-nav {display: none;}
+    .mobile-nav {
+        .example-sidenav-content {
+            .mat-button {
+                color: var(--navbar-toggle);
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1145px) {
+        .desktop-nav {
+            display: flex;
+        }
+        .mobile-nav {
+            display: none;
+        }
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 100px; /* adjust as needed */
+        max-height: 1000px; /* adjust this for vertical space */
+        overflow-y: auto; /* add scrollbar if content overflows */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 100;
+        background-color: var(--dropdown-bg); // Use the variable here
+    }
+
+    .dropdown-content a {
+        color: var(--nav-a); /* change this to desired color */
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown > a::after {
+        content: '\25BC'; 
+        font-size: 0.5em;
+        vertical-align: middle;
+        display: inline-block;
+        transform: rotate(0deg);
+        transition: transform 0.3s ease-out;
+        margin-left: 10px;
+    }
+
+    .dropdown:hover > a::after {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-content a:hover {
+        background-color: transparent; /* Remove the gray background */
+        color: #ff1a41; /* Change the text color to #ff1a41 */
+    }
+}

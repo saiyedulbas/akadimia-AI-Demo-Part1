@@ -1,0 +1,92 @@
+:host {
+    .ak-footer {
+        background-color: var(--footer-bg);
+        padding: 64px 10px;
+
+        .logo-copyright {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .nav-logo {
+                max-height: 50px;
+                width: auto;
+            }
+
+            .copyright-txt {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 12px;
+                color: #605F6E;
+                padding-top: 5px;
+            }
+        }
+
+        .footer-body {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+
+            .footer-section {
+                max-width: 200px;
+            }
+
+            .footer-category {
+                font-weight: 400;
+                font-size: 11px;
+                line-height: 16px;
+                letter-spacing: 0.015em;
+                text-transform: uppercase;
+                color: #7B8682;
+            }
+
+            .footer-links {
+                padding-inline-start: 0;
+
+                .footer-link {
+                    list-style-type: none;
+
+                    a {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: var(--footer-link-text);
+                        text-decoration: none;
+                    }
+                }
+
+                .download-app-btn {
+                    margin-top: 10px;
+                    color: var(--nav-download-button-color);
+                    background-color: var(--nav-download-button-bg);
+                    cursor: pointer;
+                    border-radius: 6px;
+                    text-align: left;
+                    padding: 4px 8px;
+                    width: 145px;
+                    p {margin: 0px;}
+
+                    svg path {fill: var(--nav-download-button-color);}
+
+                    .download-on-the {
+                        font-size: 11px;
+                    }
+        
+                    .app-store {
+                        font-size: 16px;
+                        line-height: 16px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .footer-body {
+                flex-direction: row;
+            }
+        }
+    }
+}

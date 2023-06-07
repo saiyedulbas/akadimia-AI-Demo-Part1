@@ -1,0 +1,128 @@
+:host {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .cover {
+            width: 100%;
+            min-height: 384px;
+            padding: 32px 16px;
+            background-image: url("../../../assets/pricing-geometry.svg");
+            background-color: black;
+            background-repeat: round;
+            background-size: cover;
+
+            .w-constraint {
+                width: 1000px;
+                max-width: 100%;
+                margin: auto;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .title {
+                max-width: 275px;
+                font-family: 'Lora';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 34px;
+                line-height: 38px;
+                /* or 112% */
+
+
+                /* Color Styles/Palette-general/White-50 */
+
+                color: #FFFFFF;
+            }
+
+            .subtitle {
+                max-width: 275px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 30px;
+                /* or 150% */
+
+
+                /* Color Styles/Palette-general/White-50 */
+
+                color: #FFFFFF;
+
+            }
+        }
+
+        .all-plans {
+            max-width: 100%;
+            width: 1000px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 16px;
+
+            .current-plan {
+                &.coming-soon {
+                    filter: blur(10px);
+                    pointer-events: none;
+                }
+
+                color: white;
+                background-color: #32423C;
+                padding: 24px;
+                box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.12);
+                border-radius: 6px;
+
+                .plan-title {
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 30px;
+                }
+
+                .plan-price {
+                    .number {
+                        font-weight: 500;
+                        font-size: 34px;
+                        line-height: 38px;
+                    }
+
+                    .duration {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 24px;
+                        /* identical to box height, or 150% */
+
+
+                        /* Palette-olive/Olive-200 */
+
+                        color: #A9B1AE;
+                    }
+                }
+
+                .features {
+                    gap: 12px;
+
+                    .feature {
+                        gap: 10px;
+                    }
+
+                    .check-icon {
+                        background: black;
+                        border-radius: 50%;
+                        width: 30px;
+                        padding-top: 5px;
+                        height: 30px;
+                        font-size: 20px;
+                    }
+
+                    .feature-txt {
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

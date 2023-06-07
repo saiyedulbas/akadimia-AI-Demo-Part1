@@ -1,0 +1,36 @@
+
+<div class="main-bg">
+    <section class="header flex-row">
+        <img class="header-design" src="../../../assets/time-machine-header.svg" />
+        <img class="header-clock" src="../../../assets/timeline-clock.png" />
+        <div class="header-text-container">
+            <div>
+                <h1 class="time-travel">Time Travel</h1>
+                <p class="time-travel-subtitle">Explore all eras and the influential figures in them</p>
+            </div>
+            <div class="era-toggle">
+                <input [(ngModel)]="isBC" type="checkbox" id="switch" />
+                <label for="switch"></label>
+            </div>
+        </div>
+    </section>
+    <div class="timelines-container">
+        <div class="timelines" ngClass="{'bc-timeline': isBC}">
+            <div *ngIf="isBC == false;then AD else BC"></div>
+    
+            <ng-template #AD>
+                <div *ngFor="let timeline of timelines" class="timeline-container mbxl">
+                    <timeline-card [timeline]="timeline"></timeline-card>
+                </div>
+            </ng-template>
+    
+            <ng-template #BC>
+                <div *ngFor="let timeline of darkTimelines" class="timeline-container mbxl">
+                    <timeline-card [timeline]="timeline"></timeline-card>
+                </div>
+            </ng-template>
+    
+        </div>
+    </div>
+
+</div>

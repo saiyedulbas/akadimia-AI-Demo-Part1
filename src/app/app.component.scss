@@ -1,0 +1,121 @@
+@import "/src/app/styles//colors.scss";
+
+.theme-container {
+    .navbar-sidenav {
+        width: 100vw;
+    }
+
+    .mobile-nav-body {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        background-color: var(--nav-bg);
+
+        .mobile-nav-section {
+            max-width: 200px;
+
+        }
+
+        .mobile-nav-category {
+
+            margin-bottom: 24px;
+
+
+            /* Other/overline */
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 16px;
+            /* identical to box height, or 145% */
+
+            letter-spacing: 0.015em;
+            text-transform: uppercase;
+
+            /* Palette-olive/Olive-300 */
+
+            color: #7B8682;
+
+            mix-blend-mode: normal;
+        }
+
+        .mobile-nav-links {
+            padding-inline-start: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding-left: 16px;
+
+            .mobile-nav-link {
+                list-style-type: none;
+
+                a {
+                    // font-weight: 400;
+                    // font-size: 16px;
+                    // line-height: 24px;
+                    // color: $olive-900;
+                    // text-decoration: none;
+
+                    // font-family: 'Poppins';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 26px;
+                    text-decoration: none;
+
+                    /* identical to box height, or 144% */
+
+
+                    /* Palette-olive/Olive-900 */
+
+                    color: var(--nav-a)
+                }
+            }
+
+            .download-app-btn {
+                color: var(--nav-download-button-color);
+                background-color: var(--nav-download-button-bg);
+
+                p {
+                    margin: 0px;
+                }
+
+                cursor: pointer;
+                border-radius: 6px;
+                text-align: left;
+                padding: 4px 8px;
+                width: 160px;
+
+                .download-on-the {
+                    font-size: 11px;
+                }
+
+                .app-store {
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight: bold;
+                }
+                svg path {
+                    fill: var(--nav-download-button-color);
+                }
+            }
+        }
+    }
+}
+
+
+.navbar-toggle {
+    color: var(--navbar-toggle);
+}
+.mat-drawer-content {background-color: var(--section-bg );}
+
+mat-drawer.navbar-sidenav {
+    width: 100vw;
+    .mat-drawer-inner-container {
+        background-color: var(--side-nav-container);
+    }
+}

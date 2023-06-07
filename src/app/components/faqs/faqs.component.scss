@@ -1,0 +1,84 @@
+
+    .container-faqs {
+        margin: auto;
+        margin-top: 80px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        max-width: 686px;
+        align-items: center;
+        gap: 24px;
+        mat-panel-title {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 22px;
+        }
+        .faq-accordion {
+            max-width: 100%;
+            background-color: var(--faq-accordion-bg);
+            mat-expansion-panel {
+                background-color: var(--section-bg);
+                mat-panel-title {color: var(--title)}
+                .mat-expansion-indicator::after {
+                    color: var(--title);
+                }
+                .mat-expansion-panel-header {
+    
+                    &:hover {
+                        background-color: var(--mat-panel-hover);
+                    }
+                }
+                p {color: var(--accordion-body);}
+            }
+        }
+        .faq-title {
+            font-family: 'Lora';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 34px;
+            line-height: 38px;
+            color: #485652;
+            color: var(--faq-accordion-title);
+        }
+        .description {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #676767;
+            color: var(--faq-accordion-body);
+        }
+
+    }
+
+mat-form-field.search-faqs {
+    width: 100%;
+    .mat-form-field-flex {
+        padding: 0px 33px;
+        padding-bottom: 6px;
+        align-items: center;
+        gap: 16px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        color: #A9B1AE;
+        color: var(--search-bar-label);
+        height: 48px;
+        max-width: 686px;
+        width: 100%;
+        background-color: var(--search-bar-bg);
+    }
+    .mat-form-field-infix {
+        input {
+            color: white;
+            color: var(--faq-accordion-title);
+            &::placeholder{
+                color: white;
+                color: var(--search-bar-label);
+            }
+        }
+    }
+    .mat-form-field-label {
+        color: var(--search-bar-label);
+    }
+}

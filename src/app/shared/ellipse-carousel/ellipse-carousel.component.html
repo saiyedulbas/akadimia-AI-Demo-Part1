@@ -1,0 +1,33 @@
+<div class="scene">
+  <div *ngIf="biscuit == false" class="ellipse"></div>
+  <div class="carousel" #carousel>
+    <div *ngFor="let character of charactersList; let i=index" [ngClass]="{'selected-img': i == selectedIndex}" class="carousel__cell">
+      <img *ngIf="!character.vidUrl" class="char-img" [src]="character.imgUrl" [ngClass]="{'no-biscuit': biscuit == false}"/>
+      <div *ngIf="character.vidUrl" class="video-preview-container">
+        <video autoplay loop class="preview-video" [src]="character.vidUrl" [ngClass]="{'no-biscuit': biscuit == false}"></video>
+      </div>
+
+      <img *ngIf="biscuit && character.imgUrl" class="stage-img" src="../../../assets/stage.svg" />
+
+      <!-- <h1>{{character.name}}</h1> -->
+    </div>
+    
+    <!--     <div class="carousel__cell">6</div>
+      <div class="carousel__cell">7</div>
+      <div class="carousel__cell">8</div>
+      <div class="carousel__cell">9</div> -->
+  </div>
+</div>
+<div *ngIf="noControls == false" style="text-align: center">
+  <button mat-icon-button class="previous-button mrl" (click)="previous()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button mat-icon-button class="next-button" (click)="next()">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+</div>
+<div  class="character-details mtxl">
+  <h1 class="character-name">{{charactersList[selectedIndex].name}}</h1>
+  <p *ngIf="noDetails == false" class="character-description mtm mbl">{{charactersList[selectedIndex].smallDescription? charactersList[selectedIndex].smallDescription : charactersList[selectedIndex].description | slice:0:200}}</p>
+  <ak-button *ngIf="noControls == false" class="mbl" buttonClasses="ak-button flat large" text="Summon" (click)="summon(charactersList[selectedIndex])"></ak-button>
+</div>

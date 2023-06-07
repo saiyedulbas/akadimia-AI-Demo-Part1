@@ -1,0 +1,143 @@
+<div class="add-character-main-container">
+  <div class="container">
+    <h1 class="center">Create new Character</h1>
+
+    <form [formGroup]="characterForm">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter character name</mat-label>
+        <input formControlName="characterName" matInput placeholder="e.g. - Einstein">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Character Small Description</mat-label>
+        <textarea formControlName="characterSmallDescription" matInput placeholder="Placeholder"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Character Description</mat-label>
+        <textarea formControlName="characterDescription" matInput placeholder="Placeholder"></textarea>
+      </mat-form-field>
+
+      <!-- <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Period</mat-label>
+        <input [(ngModel)]="characterEra" matInput placeholder="e.g. '100-200 A.D.'">
+      </mat-form-field>
+    </p> -->
+
+      <mat-form-field appearance="fill">
+        <mat-label>Time Period</mat-label>
+        <mat-select formControlName="characterEra">
+          <mat-option *ngFor="let period of periodsList" [value]="period">
+            {{period}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="custom-fields-container">
+        <h1 class="center">Custom Fields</h1>
+        <ng-container formArrayName="customFields">
+          <ng-container *ngFor="let customField of customFields.controls; let i = index">
+            <div [formGroupName]="i" class="flex-row center gap-m">
+              
+              <mat-form-field appearance="outline" class="f-2">
+                <input matInput formControlName="fieldName" placeholder="Type, e.g. - Date of Birth">
+              </mat-form-field>
+  
+              <mat-form-field appearance="outline" class="f-2">
+                <input matInput formControlName="fieldValue" placeholder="Value">
+              </mat-form-field>
+  
+              <mat-icon class="delete-btn f-1" (click)="deleteCustomField(i)">
+                delete_forever
+              </mat-icon>
+            </div>
+          </ng-container>
+        </ng-container>
+  
+        
+        <button mat-mini-fab (click)="addCustomField()">
+            <mat-icon class="add-course-btn">add</mat-icon>
+        </button>
+  
+      </div>
+
+      <div class="flex-col gap-m border-orange mtxl mbxl">
+        <input class hidden type="file" accept="image/*" id="file" #characterPhoto (change)="uploadFile($event)"
+          name="image" autocomplete="off" />
+        <ak-button [hidden]="this.file" (click)="characterPhoto.click()" buttonClasses="ak-button flat white"
+          text="Select character avatar"></ak-button>
+
+        <div class="flex-col gap-m" [hidden]="!this.file">
+
+          <div class="img-preview-container">
+            <img class="preview-img" #characterPhotoPreview src="" />
+          </div>
+          <span class="flex-col">
+            <ak-button (click)="clearFileList(); characterPhoto.click()" text="Replace"
+              buttonClasses="ak-button flat white"></ak-button>
+            <!-- <ak-button (click)="removeSelectedPhoto()" text="Remove" buttonClasses="ak-button flat"></ak-button> -->
+          </span>
+        </div>
+        <mat-progress-bar [hidden]="!this.file" mode="determinate" [value]="imageUploadProgress"></mat-progress-bar>
+
+      </div>
+
+      <div class="flex-col gap-m border-orange mtxl">
+        <input class hidden type="file" id="file" #characterVideo (change)="uploadVideo($event)" name="image"
+          autocomplete="off" />
+        
+        <div [hidden]="this.videoFile" class="center">
+          <p>Video size: < 3 megabytes if possible</p>
+          <p>Please crop the left and right edges of the video</p>
+        </div>
+        <ak-button class="mtm" [hidden]="this.videoFile" (click)="characterVideo.click()" buttonClasses="ak-button flat white"
+          text="Select character video"></ak-button>
+
+        <div class="flex-col center gap-m white-bg" [hidden]="!this.videoFile">
+
+          <div class="video-preview-container">
+            <video class="preview-video" #characterVideoPreview src="" autoplay loop></video>
+          </div>
+
+          <span class="flex-col">
+            <ak-button (click)="clearVideoList(); characterVideo.click()" text="Replace"
+              buttonClasses="ak-button flat white"></ak-button>
+            <!-- <ak-button (click)="removeSelectedVideo()" text="Remove" buttonClasses="ak-button flat"></ak-button> -->
+          </span>
+        </div>
+        <mat-progress-bar [hidden]="!this.videoFile" mode="determinate" [value]="videoUploadProgress"></mat-progress-bar>
+
+      </div>
+    </form>
+
+
+
+    <button class="action-btn" *ngIf="isEditing == false" matButton [disabled]="!this.file" (click)="createCharacter()">Create
+      character</button>
+    <button class="action-btn" *ngIf="isEditing == true" matButton (click)="updateCharacter()">Update character</button>
+
+  </div>
+
+
+  <div class="grid">
+    <div *ngFor="let character of allCharacters" class="flex-col center h-center gap-m char-card">
+      <img class="char-img" [src]="character.imgUrl" />
+      <p>{{character.name}}</p>
+      <p>{{character.smallDescription}}</p>
+      <p>{{character.description | slice:0:100}}</p>
+      <ak-button text="Edit" buttonClasses="ak-button flat white" (click)="editCharacter(character)"></ak-button>
+      <ak-button text="Delete" buttonClasses="ak-button flat"
+        (click)="deleteCharacter(character.id, character.imgUrl, character['vidUrl'])"></ak-button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <img [src]="getImage('x')" /> -->
+
+<!-- List all characters -->

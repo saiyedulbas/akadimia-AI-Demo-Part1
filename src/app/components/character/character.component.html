@@ -1,0 +1,16 @@
+<div class="character-container">
+    <div class="img-container">
+        <img *ngIf="character.imgUrl" class="mbxl" [src]="character.imgUrl"/>
+        <div class="flex-col gap-l">
+            <ak-button (click)="download.click()" buttonClasses="ak-button flat large white" text="Summon"></ak-button>
+            <a #download hidden [href]="downloadLink" target="_blank"></a>
+            <ak-button buttonClasses="ak-button large black" text="All Characters" (click)="seeAllCharacters()"></ak-button>
+        </div>
+    </div>
+    <div class="left-panel">
+        <h1 class="character-name">{{character.name}}</h1>
+        <!-- <h2 class="character-designation">Mongolian Emperor</h2> -->
+        <h3 class="character-era">{{character.period}}</h3>
+        <p class="character-description mtm">{{character.description}}</p>
+    </div>
+</div>

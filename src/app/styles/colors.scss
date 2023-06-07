@@ -1,0 +1,45 @@
+$sand-400: #F7DAB7;
+$sand-500: #EBC699;
+
+$olive-100: #C6D0CD;
+$olive-900: #090D0B;
+$olive-300: #7B8682;
+$olive-400: #485652;
+$olive-500: #32423C;
+$olive-700: #1E2724;
+
+$gray-50: #FBFBFB;
+
+$carousel-controls: #32423C;
+
+@mixin carousel-controls-font {
+    color: #FFF;
+    font-family: 'Lora', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 41px;
+}
+
+/*-------------------Fonts & Display styles?------------------------------------- */
+.display-2 {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 50px;
+    &.olive-500 {color: $olive-500;}
+}
+
+/* Heading/h2-medium */
+.h2-medium {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    &.olive-300 {color: $olive-300;}
+}
+
+
+// $carousel-controls-dark:#32423C;

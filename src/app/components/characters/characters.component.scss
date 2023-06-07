@@ -1,0 +1,432 @@
+@import "../../styles/colors.scss";
+
+    .characters-main-container {
+
+        position: relative;
+        &::before {
+            content: "";
+            background-image: url("../../../assets/characters-bg.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: var(--characters-bg-opacity);
+            z-index: -1;
+        }
+
+        // background: var(--characters-bg);
+        min-height: 1200px;
+        padding-top: 150px;
+        .full-width {
+            max-width: 90%;
+            width: 686px;
+            margin: auto;
+            .mat-form-field-flex {background: #181818;}
+            .mat-form-field-infix {
+                input {
+                    color: white;
+                    &::placeholder{
+                        color: white;
+                    }
+                }
+            }
+            .mat-form-field-label {
+                color: white;
+            }
+        }
+        .influential-figures-carousel {
+            .figures-title {
+                font-family: 'Lora';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 45px;
+                line-height: 50px;
+                text-align: center;
+                letter-spacing: -5e-05em;
+                color: #090D0B;
+                color: var(--characters-title);
+            }
+
+            .figures-subtitle {
+                /* Heading/h2-medium */
+
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 26px;
+                /* identical to box height, or 130% */
+
+                text-align: center;
+
+                /* Palette-olive/Olive-900 */
+
+                color: #090D0B;
+                color: var(--characters-title);
+
+            }
+        }
+
+
+
+
+        .section-gallery {
+            text-align: center;
+        }
+
+        .selected {
+            font-weight: bold;
+        }
+
+        .characters-gallery {
+            .gallery-strip {
+                background: #FFFFFF;
+                box-shadow: 0px 8px 17px rgba(157, 157, 157, 0.4);
+                border-radius: 6px;
+                padding: 14px 24px;
+                display: flex;
+                justify-content: center;
+                gap: 18px;
+                max-width: 766px;
+                margin: auto;
+
+                // dark
+                background: var(--characters-gallery-bg);
+                border: var(--characters-gallery-border);
+                box-shadow: none;
+
+                .thumb-img {
+                    cursor: pointer;
+                    object-fit: cover;
+                    height: 62px;
+                    width: 60px;
+                    border-radius: 6px;
+
+                    &.selected-img {
+                        background: #EBC699;
+                        border: 3px solid #F3E7D7;
+                        box-shadow: 0px 0px 12px #897B69;
+                    }
+
+                    // dark 
+
+                    background: white;
+                    &.selected-img {
+                        background: #EBEDEB;
+                        border: 3px solid #3C2A70;
+                        border: 3px solid #9B82E1;
+                        box-shadow: 0px 0px 12px rgba(117, 99, 170, 0.9);
+                        border-radius: 6px;
+
+                        // background: #C5CBFD;
+                        background: white;
+                        border: 3px solid #FFFFFF;
+                        box-shadow: 0px 0px 12px #897b69;
+                    }
+                }
+            }
+
+        }
+
+        .actions {
+            max-width: 500px;
+            margin: auto;
+            // margin-top: 80px;
+            .previous-button {
+                background: #484848;
+                border-radius: 4px;
+                color: white;
+            }
+
+            .next-button {
+                background: #484848;
+                border-radius: 4px;
+                color: white;
+            }
+
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+            z-index: -111;
+
+            li {
+                position: absolute;
+                display: block;
+                list-style: none;
+                width: 20px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                -webkit-animation: animate 25s linear infinite;
+                animation: animate 25s linear infinite;
+                bottom: -150px;
+
+                //   &:nth-child(1) {
+                //     left: 25%;
+                //     width: 262px;
+                //     height: 262px;
+                //     -webkit-animation-delay: 0s;
+                //     animation-delay: 0s;
+                //     background: url("../../../assets/planets/sun.png");
+                //     background-size: cover;
+                //   }
+                //   &:nth-child(2) {
+                //     left: 10%;
+                //     width: 262px;
+                //     height: 262px;
+                //     -webkit-animation-delay: 2s;
+                //     animation-delay: 2s;
+                //     -webkit-animation-duration: 12s;
+                //     animation-duration: 12s;
+                //     background: url("../../../assets/planets/mars.png");
+                //     background-size: cover;
+                //   }
+                //   &:nth-child(3) {
+                //     left: 70%;
+                //     width: 278px;
+                //     height: 136px;
+                //     // aspect-ratio: ;
+                //     -webkit-animation-delay: 0s;
+                //     animation-delay: 0s;
+                //     background: url("../../../assets/planets/saturn.png");
+                //     background-size: cover;
+                //   }
+
+                //   &:nth-child(4) {
+                //     left: 40%;
+                //     width: 262px;
+                //     height: 262px;
+                //     -webkit-animation-delay: 0s;
+                //     animation-delay: 0s;
+                //     -webkit-animation-duration: 18s;
+                //     animation-duration: 18s;
+                //     background: url("../../../assets/planets/blurred-ellipse.png");
+                //     background-size: cover;
+                //   }
+
+                //   &:nth-child(5) {
+                //     left: 65%;
+                //     width: 262px;
+                //     height: 262px;
+                //     -webkit-animation-delay: 0s;
+                //     animation-delay: 0s;
+                //     background: url("../../../assets/planets/blurred-ellipse-2.png");
+                //     background-size: cover;
+                //   }
+                &:nth-child(1) {
+                    left: 25%;
+                    width: 80px;
+                    height: 80px;
+                    -webkit-animation-delay: 0s;
+                    animation-delay: 0s;
+                    background: #f25f5c;
+                }
+
+                &:nth-child(2) {
+                    left: 10%;
+                    width: 20px;
+                    height: 20px;
+                    -webkit-animation-delay: 2s;
+                    animation-delay: 2s;
+                    -webkit-animation-duration: 12s;
+                    animation-duration: 12s;
+                    background: #ffe066;
+                }
+
+                &:nth-child(3) {
+                    left: 70%;
+                    width: 20px;
+                    height: 20px;
+                    -webkit-animation-delay: 4s;
+                    animation-delay: 4s;
+                    background: #247ba0;
+                }
+
+                &:nth-child(4) {
+                    left: 40%;
+                    width: 60px;
+                    height: 60px;
+                    -webkit-animation-delay: 0s;
+                    animation-delay: 0s;
+                    -webkit-animation-duration: 18s;
+                    animation-duration: 18s;
+                    background: #70c1b3;
+                }
+
+                &:nth-child(5) {
+                    left: 65%;
+                    width: 20px;
+                    height: 20px;
+                    -webkit-animation-delay: 0s;
+                    animation-delay: 0s;
+                    background: #50514f;
+                }
+
+                &:nth-child(6) {
+                    left: 75%;
+                    width: 110px;
+                    height: 110px;
+                    -webkit-animation-delay: 3s;
+                    animation-delay: 3s;
+                    background: #f25f5c;
+                }
+
+                &:nth-child(7) {
+                    left: 35%;
+                    width: 150px;
+                    height: 150px;
+                    -webkit-animation-delay: 7s;
+                    animation-delay: 7s;
+                    background: #ffe066;
+                }
+
+                &:nth-child(8) {
+                    left: 50%;
+                    width: 25px;
+                    height: 25px;
+                    -webkit-animation-delay: 15s;
+                    animation-delay: 15s;
+                    -webkit-animation-duration: 45s;
+                    animation-duration: 45s;
+                    background: #247ba0;
+                }
+
+                &:nth-child(9) {
+                    left: 20%;
+                    width: 15px;
+                    height: 15px;
+                    -webkit-animation-delay: 2s;
+                    animation-delay: 2s;
+                    -webkit-animation-duration: 35s;
+                    animation-duration: 35s;
+                    background: #70c1b3;
+                }
+
+                &:nth-child(10) {
+                    left: 85%;
+                    width: 150px;
+                    height: 150px;
+                    -webkit-animation-delay: 0s;
+                    animation-delay: 0s;
+                    -webkit-animation-duration: 11s;
+                    animation-duration: 11s;
+                    background: #50514f;
+                }
+            }
+        }
+
+        .search-character-form {
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .planet-1 {
+            position: absolute;
+            top: 100px;
+            right: 0px;
+            z-index: -11;
+            overflow: hidden;
+
+        }
+
+        .planet-2 {
+            position: absolute;
+            top: 100px;
+            left: -100px;
+            z-index: -11;
+            overflow: hidden;
+
+        }
+
+        .planet-3 {
+            position: absolute;
+            bottom: -100px;
+            right: 100px;
+            z-index: -11;
+            overflow: hidden;
+
+        }
+
+        .planet-4 {
+            position: absolute;
+            bottom: -100px;
+            left: 100px;
+            z-index: -11;
+            overflow: hidden;
+        }
+
+        .galaxy-1 {
+            position: absolute;
+            top: 0px;
+            z-index: -11;
+            overflow: hidden;
+            filter: blur(50px);
+        }
+
+        .galaxy-2 {
+            position: absolute;
+            bottom: 100px;
+            right: 0px;
+            z-index: -11;
+            overflow: hidden;
+            filter: blur(50px);
+        }
+
+        @-webkit-keyframes animate {
+            0% {
+                -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(-2000px) rotate(720deg);
+                transform: translateY(-2000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        @keyframes animate {
+            0% {
+                -webkit-transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(-2000px) rotate(720deg);
+                transform: translateY(-2000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    // ----- Styles for other components -----
+    
+        div.mat-autocomplete-panel {
+            background: #424242;
+            color: white;
+            mat-option:hover {
+                background-color: #494949;
+            }
+        }
+        // .character-name {
+        //     color: #FFF !important;
+        // }
+

@@ -1,0 +1,58 @@
+<div class="container">
+    <mat-form-field appearance="outline">
+        <mat-label>Blog Post Title</mat-label>
+        <input [(ngModel)]="postTitle" matInput placeholder="Title">
+    </mat-form-field>
+    
+    
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Category (e.g. - AI)</mat-label>
+        <textarea [(ngModel)]="postCategory" matInput placeholder="Category" ></textarea>
+    </mat-form-field>
+    
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Summary (this appears in the smaller tiles)</mat-label>
+        <textarea [(ngModel)]="postSummary" matInput placeholder="Summary" ></textarea>
+    </mat-form-field>
+
+    <h1>Blog body</h1>
+    <ckeditor class="blog-post-editor" [(ngModel)]="blogContent" [editor]="Editor" (ready)="onReady($event)" (change)="onEditorChange($event)"></ckeditor>
+<ak-button *ngIf="isEditing == false" [disabled]="blogContent.length < 1 || postTitle.length < 1 || postSummary.length < 1" text="Post" buttonClasses="ak-button flat large" (click)="postBlog()"></ak-button>
+<ak-button  *ngIf="isEditing == true"  [disabled]="blogContent.length < 1 || postTitle.length < 1 || postSummary.length < 1" text="Update" buttonClasses="ak-button flat large" (click)="updateBlogPost()"></ak-button>
+<ak-button  *ngIf="isEditing == true" text="Cancel" buttonClasses="ak-button flat white" (click)="cancelEditing()"></ak-button>
+
+</div>
+
+<div class="all-posts">
+    <h1 class="header-title">All Posts</h1>
+        <div class="blog-post" *ngFor="let p of blogPosts">
+            <span class="flex-row">
+                <button mat-button (click)="editPost(p)">
+                    <span><mat-icon>edit</mat-icon></span>
+                    <span>Edit</span>
+                </button>
+                <button mat-button (click)="deletePost(p)">
+                    <span><mat-icon>delete</mat-icon></span>
+                    <span>Delete</span>
+                </button>
+            </span>
+            <p class="category-time">{{ p.category }} / {{ p.readingMinutes }} minutes </p>
+            <h3 class="title">{{ p.title }} </h3>
+            <a class="read-more-link">Read more</a>
+
+        </div>
+</div>
+<!-- <div class="grid card-list">
+    <div class="article-card" *ngFor="let post of blogPosts">
+        <blog-article [post]="post" [delete]="true"></blog-article>
+    </div>
+</div> -->
+<!-- <div *ngIf="added == true" class="container">
+    <h1>Successfully created blog post!</h1>
+    <ak-button text="See all posts" buttonClasses="ak-button flat large" routerLink="/blogs"></ak-button>
+    <ak-button text="Create more posts" buttonClasses="ak-button large" (click)="added = false"></ak-button>
+</div> -->
+
+

@@ -1,0 +1,5 @@
+<button (click)="doAction()" [ngClass]="buttonClasses" [disabled]="disabled">
+    <mat-icon *ngIf="prefixIcon">{{prefixIcon}}</mat-icon>
+    <span>{{text}}</span>
+    <mat-icon *ngIf="suffixIcon">{{suffixIcon}}</mat-icon>
+</button>

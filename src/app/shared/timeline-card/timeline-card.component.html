@@ -1,0 +1,60 @@
+
+<div class="timeline-card-container">
+    <div class="card mbl" [ngClass]="{'expanded': isExpanded}">
+        <span class="white-dot"></span>
+        <img class="cover-image" [src]="timeline.coverImgURL">
+        <h2 class="time-period">{{timeline.period}}</h2>
+        <p class="description mbl">{{isExpanded || timeline.description.length < 300 ? timeline.description : (timeline.description | slice:0:300)+ '...'}} </p>
+        <div *ngIf="isExpanded" class="faw-accordion">
+                <mat-accordion displayMode="flat" multi="true">
+                    <mat-expansion-panel *ngIf="timeline.political_events">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Political Events
+                            </mat-panel-title>
+                            <!-- <mat-panel-description>
+                          This is a summary of the content
+                        </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+                        <p class="description" [innerHtml]="timeline.political_events"></p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel *ngIf="timeline.tech_advancements">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Technological Advancements
+                            </mat-panel-title>
+                            <!-- <mat-panel-description>
+                          This is a summary of the content
+                        </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+                        <p class="description" [innerHtml]="timeline.tech_advancements"></p>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel *ngIf="timeline.famine_and_natural_disasters">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Famine and Natural Disasters
+                            </mat-panel-title>
+                            <!-- <mat-panel-description>
+                          This is a summary of the content
+                        </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+                        <p class="description" [innerHtml]="timeline.famine_and_natural_disasters"></p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+        </div>
+        <div class="characters flex-row">
+                <div *ngFor="let c of timeline.characters" (click)="summonCharacter(c.id)" class="character-container flex-row mrl mbl">
+                    <img [src]="c.imgUrl" alt="Small character avatar" class="avatar mrl" [ngClass]="{'dark':isExpanded}">
+                    <div *ngIf="isExpanded" class="char-details">
+                        <div class="name">{{c.name}}</div>
+                        <div class="era">{{c.period}}</div>
+                    </div>
+                </div>        
+
+        </div>
+    </div>
+    <span #cardToggle class="show-toggle" (click)="toggleCard()">{{isExpanded ? "Show less" : "Show more"}}</span>
+</div>
+

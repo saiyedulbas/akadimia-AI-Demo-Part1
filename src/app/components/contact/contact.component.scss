@@ -1,0 +1,112 @@
+:host {
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 20px;
+
+        .contact-card {
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-between;
+            padding: 24px;
+            background-color: #FBFBFB;
+            border: 2px solid #C6D0CD;
+
+            background: var(--contact-card-bg);
+            border: var(--contact-card-border);
+
+
+            border-radius: 6px;
+            max-width: 288px;
+            min-height: 374px;
+            // margin: auto;
+            text-align: center;
+
+            h2,
+            p {
+                max-width: 226px;
+                margin: auto;
+            }
+
+            h2 {color: var(--contact-type-title);}
+            p {color: var(--contact-type-subtitle)}
+        }
+
+
+    }
+
+    .contact-us-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        padding: 0 10px;
+        img {
+            max-width: 288px;
+        }
+
+        .title {
+            max-width: 288px;
+        }
+    }
+
+    .checkbox {
+        /* Palette-Gray/Gray-50 */
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 12px 16px;
+        min-width: 288px;
+        
+        /* Palette-Gray/Gray-300 */
+        background-color: var(--contact-services-checkox-bg);
+        border: 1px solid #E5E5E5;
+        border-radius: 4px;
+    }
+
+    .service-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .groups {
+        width: 100%;
+    }
+    @media only screen and (min-width: 768px) {
+        .cards-container {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .contact-us-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: fit-content;
+            margin: auto;
+            gap: 32px;
+    
+            img {
+                max-width: 686px;
+            }
+    
+            .title {
+                max-width: 412px;
+                text-align: left;
+            }
+        }
+
+        .groups {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+        }
+    }
+}

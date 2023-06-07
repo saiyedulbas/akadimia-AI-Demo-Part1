@@ -1,0 +1,52 @@
+@import "../../styles/helpers.scss";
+@import "../../styles/colors.scss";
+
+:host {
+    article {
+        max-width: 333px;
+        .article-img-container {
+            background-color: #F1F1F1;
+            height: 226px;
+            .article-img {
+                max-height: 226px;
+                align-items: center;
+                text-align: center;
+                display: block;
+                margin: auto;
+            }
+        }
+
+        .article-metadata {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 18px;
+            color: #7B8682;
+            color: var(--blog-category-time);
+        }
+
+        .article-title {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            color: #090D0B;
+            color: var(--blog-title);
+        }
+
+        .article-content {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            color: #32423C;
+            color: var(--post-body);
+        }
+
+        .read-more-link {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #485652;
+            cursor: pointer;
+            color: var(--blog-read-more);
+        }
+    }
+}

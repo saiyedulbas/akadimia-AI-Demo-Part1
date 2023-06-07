@@ -1,0 +1,202 @@
+<app-thank-you *ngIf="emailSuccess; else notSuccess"></app-thank-you>
+
+<ng-template #notSuccess>
+    <div *ngIf="currentFormType == null; then selectForm; else f" class="mt80"></div>
+
+    <ng-template #f>
+        <div *ngIf="currentFormType == 'contact'; then contactForm else quoteForm"></div>
+    </ng-template>
+</ng-template>
+
+
+<ng-template #selectForm>
+    <div class="center">
+        <h1 class="display-2">Get In Touch</h1>
+        <p>Contact our support team
+            or request a qoute.</p>
+
+        <div class="cards-container">
+            <div class="contact-card flex-col space-between">
+                <div class="card-img">
+                    <img [src]="uiService.getImgUrl('contact-us')" />
+                </div>
+                <div>
+                    <h2>I have a query</h2>
+                    <p>Our support team will get in
+                        touch with you as soon
+                        as possible</p>
+                </div>
+                <div>
+                    <ak-button routerLink="/contact/contact" buttonClasses="ak-button flat large" text="Contact us">
+                    </ak-button>
+                </div>
+            </div>
+
+            <div class="contact-card flex-col space-between">
+                <div class="card-img">
+                    <img [src]="uiService.getImgUrl('contact-us')" />
+                </div>
+                <div>
+                    <h2>I want to get a quote</h2>
+                    <p>We will get back to you with
+                        an estimate.</p>
+                </div>
+                <div>
+                    <ak-button routerLink="/contact/quote" buttonClasses="ak-button flat large" text="Get a quote">
+                    </ak-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #contactForm>
+    <form [formGroup]="contactUsForm" class="contact-us-form">
+        <img src="../../../assets/contact-us-cover.png" />
+        <div class="title">
+            <h1 class="display-2">Contact us</h1>
+            <p class="body-subtitle">Let us know your query and
+                our team will get in touch
+                with you shortly</p>
+        </div>
+        <input formControlName="a_password" type="text" name="a_password" style="display:none !important" tabindex="-1"
+            autocomplete="off">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+
+        <div class="groups">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput formControlName="phone" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Message</mat-label>
+            <textarea formControlName="message" matInput placeholder="Type your message here"
+                style="min-height: 208px"></textarea>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+        <ak-button [disabled]="contactUsForm.invalid" (click)="onContactUs()" buttonClasses="ak-button large flat"
+            text="Send"></ak-button>
+    </form>
+</ng-template>
+
+<ng-template #quoteForm>
+    <form [formGroup]="sendQuoteForm" class="contact-us-form">
+        <img src="../../../assets/contact-us-cover.png" />
+        <div class="title">
+            <h1 class="display-2">Get a Quote</h1>
+            <p class="body-subtitle">Customize your plan and
+                get an estimate. </p>
+        </div>
+        <input formControlName="a_password" type="text" name="a_password" style="display:none !important" tabindex="-1"
+            autocomplete="off">
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+
+        <div class="groups">
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput formControlName="phone" />
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+        </div>
+
+        <div class="groups">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Budget</mat-label>
+                <input type="text" placeholder="Select budget" aria-label="Number" matInput formControlName="budget"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of Budget" [value]="option.value">
+                        {{option.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Website</mat-label>
+                <input matInput formControlName="website" placeholder="Optional">
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+        </div>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Message</mat-label>
+            <textarea formControlName="message" matInput placeholder="Type your message here"
+                style="min-height: 208px"></textarea>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+
+
+        <p class="service-title">Choose the services you require</p>
+        <div class="left flex-col gap-m">
+            <div class="checkbox" *ngFor="let data of Data; let i=index">
+                <label>
+                    <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+                    {{data.name}}
+                </label>
+            </div>
+        </div>
+
+        <ak-button [disabled]="sendQuoteForm.invalid" (click)="onSendQuote()" buttonClasses="ak-button large flat"
+            text="Send"></ak-button>
+    </form>
+</ng-template>

@@ -1,0 +1,27 @@
+<div class="teleport-header">
+    <div class="text">
+        <h1>Teleport</h1>
+        <p>Scroll or pinch to zoom in out</p>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Choose century</mat-label>
+            <mat-select [(ngModel)]="selectedPeriod" (ngModelChange)="filterMapData()">
+              <mat-option *ngFor="let period of periodsList" [value]="period">
+                {{period}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="compass-image">
+        <img src="../../../assets/teleport-compass.png"/>
+    </div>
+</div>
+<highcharts-chart *ngIf="mapData.length > 0" id="container" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+    [options]="chartMap"  style="height:777px; width: 100%;display: block; margin: auto;">
+</highcharts-chart>
+<!-- <div class="map-container">
+    <highcharts-chart *ngIf="mapData.length > 0" id="container" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+        [options]="chartMap"  style="height:100%; width: 100%;display: block; margin: auto;">
+    </highcharts-chart>
+</div> -->
+

@@ -1,0 +1,57 @@
+<div class="characters-main-container">
+  <section class="influential-figures-carousel flex-col center gap-m">
+    <h1 class="figures-title">10+ Influential Figures</h1>
+    <h2 class="figures-subtitle">New Figures Added Every Month</h2>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Search Characters</mat-label>
+        <input matInput aria-label="Character" [matAutocomplete]="auto" [formControl]="characterCtrl">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectCharacter($event.option.value)">
+          <!-- <cdk-virtual-scroll-viewport class="autocomplete-test-viewport" [ngStyle]="{'height': '200px'}" itemSize="25">
+            <mat-option *cdkVirtualFor="let c of (filteredCharacters | async)" [value]="c.id">
+              <span>{{c.name}}</span>
+              <small>{{c.period}}</small>
+            </mat-option>
+          </cdk-virtual-scroll-viewport> -->
+            <mat-option *ngFor="let c of (filteredCharacters | async)" [value]="c.id">
+              <span>{{c.name}}</span>
+            </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <app-ellipse-carousel #carousel [biscuit]="false" [noControls]="true" [charactersList]="carouselSlider"></app-ellipse-carousel>
+  </section>
+
+  <section class="actions">
+    <div class="flex-row space-between">
+      <button mat-icon-button class="previous-button" (click)="previousCharacter()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <ak-button buttonClasses="ak-button flat large white" text="Summon" (click)="summon()"></ak-button>
+      <button mat-icon-button class="next-button" (click)="nextCharacter()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </section>
+
+  <section class="characters-gallery mtxl">
+    <div class="gallery-strip">
+      <span [@inOutAnimation]="'in'" *ngFor="let c of gallerySlider;let i=index;trackBy:trackById" class="mrs">
+        <img (click)="selectCharacter(c.id)" *ngIf="c.imgUrl" [ngClass]="{'selected-img': c == currentCharacter}" class="thumb-img" [src]="c.imgUrl" />
+      </span>
+    </div>
+
+  </section>
+
+  <!-- <img class="planet-1" src="../../../assets/planets/mars.png"/>
+  <img class="planet-2" src="../../../assets/planets/saturn.png"/>
+  <img class="planet-3" src="../../../assets/planets/neptune.svg"/>
+  <img class="planet-4" src="../../../assets/planets/sun.png"/>
+
+  <img class="galaxy-1" src="../../../assets/planets/galaxy-1.svg"/>
+
+  <img class="galaxy-2" src="../../../assets/planets/galaxy-2.svg"/> -->
+
+  <!-- <img src="../../../assets/planets/mars.png"/> -->
+
+</div>

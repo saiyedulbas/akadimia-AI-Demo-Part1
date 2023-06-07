@@ -1,0 +1,88 @@
+<footer class="ak-footer">
+    <div class="logo-copyright">
+        <div class="">
+            <img src="../../../assets/akadimia-logo.png" alt="Akadimia Logo" class="nav-logo" />
+            <p class="copyright-txt">Akadimia © 2023 All rights reserved</p>
+        </div>
+    </div>
+    <div class="footer-body">
+        <div class="f-1 footer-section">
+            <p class="footer-category">Explore</p>
+            <ul class="footer-links">
+                <li class="footer-link"><a routerLink="/how-it-works">How it works</a></li>
+                <!-- <li class="footer-link"><a routerLink="/teleport">Teleport</a></li> -->
+                <li class="footer-link"><a routerLink="/timemachine">Time Machine</a></li>
+                <li class="footer-link"><a routerLink="/characters">Characters</a></li>
+                <li class="footer-link"><a routerLink="/blogs">Blog</a></li>
+            </ul>
+        </div>
+        <div class="f-1 footer-section">
+            <p class="footer-category">About</p>
+            <ul class="footer-links">
+                <li class="footer-link"><a routerLink="/pricing">Pricing</a></li>
+                <li class="footer-link"><a routerLink="/faqs">FAQs</a></li>
+                <li class="footer-link"><a routerLink="/contact">Contact Us</a></li>
+                <li class="footer-link"><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                <li class="footer-link"><a routerLink="/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </div>
+        <!-- <div class="f-1 footer-section">
+            <p class="footer-category">Social</p>
+            <ul class="footer-links">
+                <li class="footer-link"><a routerLink="/blog">Twitter</a></li>
+                <li class="footer-link"><a routerLink="/blog">Instagram</a></li>
+                <li class="footer-link"><a routerLink="/blog">Facebook</a></li>
+                <li class="footer-link"><a routerLink="/blog">Youtube</a></li>
+                <li class="footer-link"><a routerLink="/blog">Linkedin</a></li>
+                <li class="footer-link"><a routerLink="/blog">Substack</a></li>
+                <li class="footer-link"><a routerLink="/blog">Clubhouse</a></li>
+            </ul>
+        </div> -->
+        <div class="f-1 footer-section">
+            <p class="footer-category">Download</p>
+            <ul class="footer-links">
+                <li class="footer-link mbl">
+                    <button (click)="linkk.click()" class="flex-row download-app-btn mrl">
+                        <svg class="mrs" width="25" height="24" viewBox="0 0 33 40" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M2.27007 14.9242C-1.00793 20.5706 1.0758 29.1398 4.70017 34.3353C6.5082 36.9333 8.33978 39.2649 10.8475 39.2649C10.8946 39.2649 10.943 39.2641 10.9915 39.2619C12.1692 39.2155 13.0213 38.8549 13.8442 38.5068C14.7683 38.1156 15.7257 37.7114 17.2247 37.7114C18.6518 37.7114 19.562 38.1026 20.4418 38.4806C21.3105 38.8537 22.2041 39.2396 23.5244 39.2147C26.3494 39.1625 28.084 36.6465 29.6149 34.4265C31.2124 32.109 32.0132 29.8592 32.2833 28.9992L32.2944 28.9648C32.3457 28.8123 32.2722 28.6457 32.1254 28.5781C32.1254 28.5781 32.106 28.57 32.1018 28.5682C31.6044 28.3661 27.2402 26.4435 27.1945 21.2036C27.1516 16.946 30.4684 14.6918 31.1334 14.2831L31.1652 14.2636C31.2373 14.2178 31.2872 14.1447 31.3038 14.0615C31.3204 13.9778 31.3038 13.891 31.2553 13.8206C28.9651 10.494 25.4572 9.99265 24.044 9.93267C23.8389 9.91217 23.6283 9.90185 23.415 9.90185C21.7566 9.90185 20.1661 10.5238 18.8901 11.0242C18.0075 11.3697 17.2469 11.6674 16.7218 11.6674C16.1316 11.6674 15.3654 11.3655 14.4788 11.0166C13.2928 10.5492 11.9489 10.0195 10.5274 10.0195C10.4928 10.0195 10.4595 10.0199 10.4263 10.0207C7.1178 10.0689 3.9922 11.9483 2.27007 14.9242Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24.0456 0.777025C22.0422 0.858058 19.6398 2.08263 18.2031 3.75335C16.9825 5.15691 15.791 7.49846 16.1041 9.85831C16.1235 10.0061 16.2455 10.1196 16.3951 10.1315C16.5295 10.1419 16.668 10.1472 16.8052 10.1472C18.7642 10.1472 20.8771 9.07082 22.3207 7.33818C23.8392 5.5091 24.6067 3.16081 24.3753 1.05796C24.3559 0.892726 24.2105 0.770285 24.0456 0.777025Z"
+                                fill="white" />
+                        </svg>
+                        <span class="flex-column">
+                            <p class="download-on-the">Download on the</p>
+                            <p class="app-store">App Store</p>
+                        </span>
+                    </button>
+                    <a #linkk hidden [href]="downloadLink" target="_blank"></a>
+                </li>
+                <!-- <li class="footer-link">
+                    <button class="flex-row download-app-btn">
+                        <svg class="mrs" width="25" height="24" viewBox="0 0 39 43" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M37.6057 19.7213L29.9095 15.3111L23.5793 21.3871L29.3636 26.9399L37.6057 22.2164C38.0588 21.9569 38.3304 21.4899 38.3304 20.9695C38.3304 20.4487 38.0588 19.9822 37.6057 19.7213Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M28.6035 14.5603L20.1342 9.7058L1.57324 0.260914L22.5366 20.3838L28.6035 14.5603Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M1.8822 42.2139L20.1661 32.2121L28.0578 27.688L22.5367 22.3875L1.8822 42.2139Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.334584 1.07736L0.315186 41.7168L21.4933 21.3874L0.334584 1.07736Z" fill="white" />
+                        </svg>
+        
+                        <span class="flex-column">
+                            <p class="download-on-the">Available on</p>
+                            <p class="app-store">Google Play</p>
+                        </span>
+                    </button>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</footer>

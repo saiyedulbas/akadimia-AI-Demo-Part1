@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "akadimia-angular": {
+      "hosting": {
+        "akadimia-ng-app": [
+          "akadimia-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "akadimia-angular"
+  }
+}

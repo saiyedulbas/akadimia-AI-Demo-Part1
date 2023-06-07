@@ -1,0 +1,46 @@
+:host {
+    .black-bg {
+        background-color: black;
+        position: relative;
+        height: 657px;
+        display: flex;
+        justify-content: space-between;
+        .sorry-vector {
+            //position: absolute;
+            left: 0;
+            height: 100%;
+        }
+
+        .sorry-img {
+           // position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+        }
+
+        .apologies {
+            top: clamp(50px, 200px, 200px);
+            left: clamp(50px, 200px, 200px);
+
+            width: fit-content;
+            position: absolute;
+            .sorry-title {
+                font-family: 'Lora';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 94px;
+                line-height: 104px;
+                letter-spacing: -0.0005em;
+                color: #FFFFFF;
+            }
+    
+            .sorry-subtitle {
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 28px;
+                color: #E5E5E5;
+            }
+        }
+
+    }
+}

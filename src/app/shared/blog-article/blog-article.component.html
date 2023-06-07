@@ -1,0 +1,10 @@
+<article>
+    <div class="article-img-container">
+        <img *ngIf="post.images[0]" class="article-img" [src]="post.images[0]">
+    </div>
+    <h6 class="article-metadata mtl">{{post.category}} / {{post.readingMinutes}} min{{post.readingMinutes > 1 ? 's':''}} read</h6>
+    <h1 class="article-title mtm">{{post.title}}</h1>
+    <p class="article-content mtm">{{post.summary}}</p>
+    <p class="mtm"><a class="read-more-link" (click)="openPost(post.id)">Read More</a></p>
+    <a></a>
+</article>

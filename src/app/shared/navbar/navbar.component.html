@@ -1,0 +1,52 @@
+<div class="app-nav-container">
+  <nav class="app-nav flex-row space-between" [ngClass]="navbarFixed? 'fixed': 'not-fixed'">
+    <div class="flex-row">
+      <img routerLink="/home" src="../../../assets/akadimia-logo.png" alt="Akadimia Logo" class="nav-logo"/>
+    </div>
+    <div class="flex-row">
+      <div class="mobile-nav">
+        <div class="example-sidenav-content">
+          <button *ngIf="(sidenavopen$ | async) == false" type="button" mat-button (click)="toggleRightSidenav()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon navbar-toggle">menu</mat-icon>
+          </button>
+
+          <button *ngIf="(sidenavopen$ | async)" type="button" mat-button (click)="toggleRightSidenav()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon navbar-toggle">close </mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <ul class="desktop-nav nav-links flex-row flex-end">
+        <li class="mrxl">
+          <button class="toggle-theme-btn flex-row">
+            <img alt="dark mode logo" [src]="uiService.getImgUrl('moon')" class="mrl" (click)="enableDarkMode()"/>
+            <img alt="light mode logo" [src]="uiService.getImgUrl('sun')" (click)="enableLightMode()"/>
+          </button>
+        </li>
+        <li class="mrxl dropdown">
+            <a routerLinkActive="active" ariaCurrentWhenActive="page">Explore</a>
+            <div class="dropdown-content">
+                <a routerLink="/how-it-works">How it Works</a>
+                <a routerLink="/timemachine">Time Machine</a>
+                <a routerLink="/teleport">Teleport</a>
+                <a routerLink="/blogs">Blog</a>
+                <a routerLink="/characters">Characters</a>
+            </div>
+        </li>
+        <li class="mrxl dropdown">
+            <a routerLinkActive="active" ariaCurrentWhenActive="page">Support</a>
+            <div class="dropdown-content">
+                <a routerLink="/contact">Contact Us</a>
+                <a routerLink="/faqs">FAQs</a>
+            </div>
+        </li>
+        <li class="mrxl">
+          <button (click)="linkk.click()" class="custom-button">
+            <img src="../../../assets/TryBtn.png" alt="Try Free">
+          </button>
+          <a #linkk hidden [href]="downloadLink" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

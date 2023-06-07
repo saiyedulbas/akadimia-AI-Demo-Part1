@@ -1,0 +1,264 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$akadimia-ng-app-primary: mat.define-palette(mat.$indigo-palette);
+$akadimia-ng-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$akadimia-ng-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$akadimia-ng-app-theme: mat.define-light-theme((
+  color: (
+    primary: $akadimia-ng-app-primary,
+    accent: $akadimia-ng-app-accent,
+    warn: $akadimia-ng-app-warn,
+  )
+));
+
+$akadimia-ng-app-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $akadimia-ng-app-primary,
+    accent: $akadimia-ng-app-accent,
+    warn: $akadimia-ng-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+.dark-theme {
+  @include mat.all-component-themes($akadimia-ng-app-theme-dark);
+}
+
+.light-theme {
+  @include mat.all-component-themes($akadimia-ng-app-theme);
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@100;200;300;400;500;600&family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+body {
+    margin: 0 !important;
+}
+
+p, h1 {
+  margin: 0;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "/src/app/styles/helpers.scss";
+@import "/src/app/styles/colors.scss";
+
+
+.dark-theme {
+  // Theme toggler 
+  --theme-btn-bg: #262626;
+  --theme-btn-border: #484848;
+  // Contact
+  --contact-img-bg: #7B8682;
+  --contact-type-title: #E5E5E5;
+  --contact-type-subtitle: #7B8682;
+  --contact-card-bg: #141A18;
+  --contact-card-border: 2px solid #32423C;;
+  --contact-services-checkox-bg: #1E2724;
+  // Navbar
+  --nav-bg : #000000;
+  --nav-a : white;
+  --nav-download-button-color: #090D0B;
+  --nav-download-button-bg: white;
+  --navbar-toggle: white;
+  
+  // Home
+  --hero-bg: linear-gradient(29.48deg, #000000 54.11%, #ff1a41 117.61%);
+  --hero-text: #EBEDEB;
+  --section-bg: #090D0B;
+  --summon-title: #C3C3C3;
+  --info-icon: #7B8682;
+  --info-title: #E5E5E5;
+  --ak-button-color:#FF5810;
+  --ak-button-bg-flat: #ff1a41;
+  --ak-button-bg-normal: #090D0B; 
+  --character-name: #E5E5E5;
+  --character-description: #C3C3C3;
+  --title: #E5E5E5;
+  --subtitle: #C3C3C3;
+  --accordion-body: #EBEDEB; 
+  --signup-bg:#141A18;
+  --signup-news-image: url("./assets/signup-news-dark.svg");
+  --carousel-arrows: #FF5810;
+  --mat-panel-hover: hsl(0, 0%, 17%) !important;  
+
+  // Footer 
+  --footer-bg: #090D0B;
+  --footer-link-text: #C3C3C3;
+  --side-nav-container: #090D0B;
+  
+  // Characters 
+  --character-preview-bg: #090D0B;
+  --characters-title: #FFF;
+  --character-name: #FFF;
+  --character-description: #FFF;
+  --character-era: #FFF;
+  --characters-bg:#060310;
+  --characters-bg-opacity: 0.05;
+  --characters-gallery-bg: rgba(0, 0, 0, 0.68);
+  --characters-gallery-border: 3px solid rgba(0, 0, 0, 0.68);
+
+    // How it works
+  --paragraph: #A9B1AE;
+  --how-it-works-1: url("./assets/how-it-works-1-dark.png");
+  --how-it-works-2: url("./assets/how-it-works-2-dark.png");
+  --how-it-works-3: url("./assets/how-it-works-3-dark.png");
+  
+  
+  // Timeline 
+  --timeline-bg: #090D0B;
+  --timeline-card-bg: #141A18;
+  --timeline-card-bg-expanded: #625749;
+  --card-title:white;
+  --card-text: white;
+  
+  // Blog
+  --blog-bg: #090D0B;
+  --blog-title: #E5E5E5;
+  --blog-subtitle: #C3C3C3;
+  --blog-category-time: #C3C3C3;
+  --post-title: #E5E5E5;
+  --post-body: #C3C3C3;
+  --blog-articles-list-bg: #090D0B;
+  --blog-read-more: #FF5810;
+  
+  
+  // FAQs
+  --header-title:#E5E5E5;
+  --search-bar-label: #A9B1AE;
+  --search-bar-bg: white;
+  --faq-accordion-bg: #090D0B;
+  --faq-accordion-shadow: inset 0px -1px 0px #2B2B2B;
+  --faq-accordion-title: #E5E5E5;
+  --faq-accordion-body: #EBEDEB; 
+  //
+}
+
+.light-theme {
+  // Theme toggler 
+  --theme-btn-bg: #262626;
+  --theme-btn-border: #262626;
+
+  // Contact
+  --contact-img-bg: #7B8682;
+  --contact-type-title: #262626;
+  --contact-type-subtitle: #7B8682;
+  --contact-card-bg: #FbFbFb;
+  --contact-card-border: 2px solid #C6D0CD;
+  --contact-services-checkox-bg: #FBFBFB;
+  
+  // Navbar
+  --nav-bg : white;
+  --nav-a : black;
+  --nav-download-button-color: white;
+  --nav-download-button-bg: #090D0B;
+  --navbar-toggle: #090D0B;
+  
+  // Home
+  --hero-bg: linear-gradient(82.65deg, #FCEDDA -13.57%, #F7D9B5 91.04%);
+  --hero-text: #ffffff;
+  --section-bg: white;
+  --summon-title:#485652;
+  --info-icon: #7B8682;
+  --info-title: #32423C;
+  --ak-button-color:white;
+  --ak-button-color-normal: #090D0B;
+  --ak-button-bg-flat: #ff1a41;
+  --ak-button-bg-normal: white; 
+  --character-name: $olive400;
+  --character-description: $olive300;
+  --title: $olive400;
+  --subtitle: $olive300;
+  --accordion-body: #676767; 
+  --signup-bg: #EBEDEB;
+  --signup-news-image: url("./assets/signup-news.svg");
+  --carousel-arrows: #7B8682;
+  --mat-panel-hover: hsl(250, 0%, 95%) !important;
+
+  // Footer
+  --footer-bg: white;
+  --footer-link-text: $olive900;
+  --side-nav-container: white;
+
+  // Characters 
+  --character-preview-bg: #F8E1C5;
+  // --characters-title: #090D0B;
+  --characters-title: #090D0B;
+  --character-name: #090D0B;
+  --character-description: #1E2724;
+  --character-era: #1E2724;
+  --characters-bg:#linear-gradient(#F8E1C5, #F2E6D8);
+  --characters-bg-opacity: 0.05;
+  --characters-gallery-bg: transparent;
+  --characters-gallery-border: 3px solid transparent;
+
+  // How it works
+  --paragraph: #7B8682;
+  --how-it-works-1: url("./assets/how-it-works-1.png");
+  --how-it-works-2: url("./assets/how-it-works-2.png");
+  --how-it-works-3: url("./assets/how-it-works-3.png");
+  
+  
+  // Timeline 
+  --timeline-bg: #EBEDEB;
+  --timeline-card-bg: #FBFBFB;
+  --timeline-card-bg-expanded: #262626;
+  --card-title:#262626;
+  --card-text: #485652;
+  
+  // Blog
+  --blog-bg: #FDF7F0;
+  --blog-title: #32423C;
+  --blog-subtitle: #7B8682;
+  --blog-category-time: #7B8682;
+  --post-title: #090D0B;
+  --post-body: #32423C;
+  --blog-articles-list-bg: #FFF
+  --blog-read-more: #485652;
+  
+  
+  // FAQs
+  --header-title:#E5E5E5;
+  --search-bar-label: #A9B1AE;
+  --search-bar-bg: white;
+  --faq-accordion-bg: 
+  --faq-accordion-shadow: inset 0px -1px 0px #2B2B2B;
+  --faq-accordion-title: #32423C;
+  --faq-accordion-body: #EBEDEB; 
+  //
+}
+
+.success-snackbar {
+  background-color: #141A18;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #141A18;
+  color: #FF5810;
+}
